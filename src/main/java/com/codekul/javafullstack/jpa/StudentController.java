@@ -18,17 +18,20 @@ public class StudentController {
         return "Student saved...";
     }
 
+
     //17 may
-        @GetMapping("getAllStudent")
-    public List<Student> getAllRecord(){
+    @GetMapping("getAllStudent")
+    public List<Student> getAllRecord() {
         return studentRepository.findAll();
     }
-//    @GetMapping("getStudentById/{id}")
+
+    //    @GetMapping("getStudentById/{id}")
 //    public Student getStudentById(@PathVariable("id") Integer id) {
 //        return studentRepository.getById(id);
 //    }
     @GetMapping("getStudentById/{id}")
-    public Optional<Student> getStudentById(@PathVariable("id") Integer id){
+    public Optional<Student> getStudentById(@PathVariable("id") Integer id) {
+
         return studentRepository.findById(id);
     }
 
@@ -39,14 +42,15 @@ public class StudentController {
 //    }
 
 
-        @PutMapping("updateStudent")
-    public Student updateStudent(@RequestBody Student student){
+    @PutMapping("updateStudent")
+    public Student updateStudent(@RequestBody Student student) {
         Student student1 = studentRepository.getById(student.getId());
         student1.setAddress(student.getAddress());
         student1.setName(student.getName());
-          student1.setBirtDate(student.getBirthDate());
+        student1.setBirtDate(student.getBirthDate());
         return studentRepository.save(student1);
     }
+
     //18may
     @DeleteMapping("deleteById/{id}")
     public String deleteStudent(@PathVariable("id") Integer id) {
@@ -72,7 +76,8 @@ public class StudentController {
     public Student getByName(@PathVariable("name") String name) {
         return studentRepository.findByName(name);
     }
-//19 May
+
+    //19 May
     @GetMapping("getByNameAndAddress")
     public Student getByNameAndAddress(@RequestParam("name") String name,
                                        @RequestParam("address") String address) {
@@ -87,31 +92,29 @@ public class StudentController {
 
     @GetMapping("getDistinctByName")
     public Student getDistinctByName(@RequestParam("name") String name) {
-      return studentRepository.findDistinctByName(name);
+        return studentRepository.findDistinctByName(name);
 
-}
+    }
 
 
-
-      @GetMapping("getByBirthDate")
+    @GetMapping("getByBirthDate")
     public List<Student> getByBirthDate(@RequestParam("firstDate") String firstDate,
-                                        @RequestParam("SecondDate") String secondDate)
-      {
-        return  studentRepository.findByBirthDateBetween(LocalDate.parse(firstDate),LocalDate.parse(secondDate));
+                                        @RequestParam("SecondDate") String secondDate) {
+        return studentRepository.findByBirthDateBetween(LocalDate.parse(firstDate), LocalDate.parse(secondDate));
     }
 //20 may
 
-     @GetMapping("getByBirthDateAfter")
+    @GetMapping("getByBirthDateAfter")
     public List<Student> getByBirthDateAfter(@RequestParam("firstDate") String firstDate) {
 
-        return  studentRepository.findByBirthDateAfter(LocalDate.parse(firstDate));
+        return studentRepository.findByBirthDateAfter(LocalDate.parse(firstDate));
     }
 
 
     @GetMapping("getByIdLessThan/{id}")
     public List<Student> getByIdLessThan(@PathVariable("id") Integer id) {
 
-        return  studentRepository.findByIdLessThanEqual(id);
+        return studentRepository.findByIdLessThanEqual(id);
     }
 
     @GetMapping("getByNameNull")
@@ -123,6 +126,7 @@ public class StudentController {
     public List<Student> getByNameLike(@RequestParam("name") String name) {
         return studentRepository.findByNameContaining(name);
     }
+
     @GetMapping("getByNameIn")
     public List<Student> getByNameIn(@RequestParam("name") List<String> name) {
         return studentRepository.findByNameIn(name);

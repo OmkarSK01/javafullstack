@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.List;
 
-
+//postman la small p dya parts capital deu nka Parts karan table parts mhnun hoto jri class name Parts asla tri
 
 @Entity
 public class Parts {

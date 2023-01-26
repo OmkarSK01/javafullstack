@@ -9,6 +9,7 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.context.*;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -121,3 +122,19 @@ public class JavaFullstackApplication {
 
 }*/
 
+
+
+//23oct-for twillio api
+//@SpringBootApplication
+//@RestController
+//public class JavaFullstackApplication {
+//
+//	public static void main(String[] args) {
+//		SpringApplication.run(JavaFullstackApplication.class, args);
+//	}
+//	@GetMapping("hello")
+//	public String msg() {
+//		return "Hello Spring...";
+//	}
+
+//}

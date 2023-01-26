@@ -10,3 +10,4 @@ public interface TeacherResponse {
     String getName();
     String getAddress();
 }
+

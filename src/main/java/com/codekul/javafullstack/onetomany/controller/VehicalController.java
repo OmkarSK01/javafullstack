@@ -67,6 +67,9 @@ public class VehicalController {
         return vehicalService.saveVehical(vehical);
     }
 }
+
+//postman la small p dya parts capital deu nka Parts karan table parts mhnun hoto jri class name Parts asla tri
+
 /*
 {"name": "Bajaj",
         "colour": "White",
